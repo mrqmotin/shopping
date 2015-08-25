@@ -1,0 +1,18 @@
+<h1>Products for <%= @category.name %></h1>
+<%= link_to "New Product for #{@category.name}", new_category_product_path(@category) %>
+<table>	
+	<th>Product</th>
+	<th>Body</th>
+	<th>Action</th>
+</tr>
+<%	for product in @products %>
+<tr>
+	<td><%=h product.name %></td>
+	<td><%=h product.price %></td>
+	<td>
+		<%=h link_to "Edit", edit_category_product_path(@category, product) %>
+		<%=h link_to "Delete", category_product_path(@category, product), method: :delete %>
+	</td>
+</tr>
+<% end %>
+<p>Find me in app/views/products/index.html.erb</p>
